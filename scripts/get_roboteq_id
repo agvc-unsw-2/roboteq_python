@@ -12,6 +12,7 @@ import re
 import argparse
 import serial
 
+
 def fail(user_message, scripting_message):
     global args
     ''' Exit on failure, printing messages to the screen.
@@ -50,7 +51,6 @@ except serial.SerialException:
       'Failed to open serial port {}'.format(args.port),
       'failed_to_open_port',
       )
-
 # CNOD isn't documented in the user manual... see
 #  http://www.roboteq.com/index.php/forum/14-general-issues/29528972-giving-mdc1460-controllers-unique-address
 query_str="~CNOD\r"
@@ -71,3 +71,4 @@ else:
       'Failed to get id. Try running with --debug for more info',
       'unable_to_get_id',
       )
+

@@ -39,7 +39,7 @@ ser = serial.Serial(
 # Store idnum on the controller using CNOD
 print('Setting idnum for roboteq attached to {} to {}'.format(
   args.port, args.idnum))
-query_str = u'^cnod {}\r'.format(args.idnum)
+query_str = '^cnod {}\r'.format(args.idnum)
 if args.debug:
     print('>> {}'.format(query_str))
 ser.write(query_str)
@@ -47,13 +47,13 @@ ser.write(query_str)
 # Save configuration to EEPROM. If we don't do this, then the value saved in
 # CNOD will be lost any time the controller loses power.
 print('Saving configuration to EEPROM')
-query_str = u'!ees\r'
+query_str = '!ees\r'
 if args.debug:
     print('>> {}'.format(query_str))
 ser.write(query_str)
 
 # Read the value back to make sure that it worked.
-query_str = u'~cnod\r'
+query_str = '~cnod\r'
 if args.debug:
     print('>> {}'.format(query_str))
 ser.write(query_str)
